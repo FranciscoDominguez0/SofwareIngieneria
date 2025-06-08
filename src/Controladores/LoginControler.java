@@ -27,6 +27,7 @@ public class LoginControler implements ActionListener{
         this.us = us;
         this.usDao = usDao;
         this.views = views;
+       
         this.views.btnLogin.addActionListener(this);
         this.views.btnCancelar.addActionListener(this);
     }
