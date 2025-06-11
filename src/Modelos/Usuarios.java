@@ -13,23 +13,28 @@ public class Usuarios {
     private String usuario;
     private String nombre;
     private String clave;
+    private String apellido;
+    private String email;
 
     private String rol;
-    private String estado;
+
     
     public Usuarios(){
         
     }
 
-    public Usuarios(int id, String usuario, String nombre, String clave,  String rol, String estado) {
+    public Usuarios(int id, String usuario, String nombre, String clave, String apellido, String email, String rol) {
         this.id = id;
         this.usuario = usuario;
         this.nombre = nombre;
         this.clave = clave;
- 
+        this.apellido = apellido;
+        this.email = email;
         this.rol = rol;
-        this.estado = estado;
     }
+
+    
+    
 
     public int getId() {
         return id;
@@ -73,13 +78,26 @@ public class Usuarios {
         this.rol = rol;
     }
 
-    public String getEstado() {
-        return estado;
+    
+
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
+    
     
     
             

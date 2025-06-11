@@ -7,7 +7,7 @@ package Controladores;
 import Modelos.Usuarios;
 import Modelos.UsuariosConsulta;
 import Vistas.JframeLogin;
-import Vistas.PanelAdmin;
+import Vistas.PanelAdminn;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -29,37 +29,22 @@ public class LoginControler implements ActionListener{
         this.views = views;
        
         this.views.btnLogin.addActionListener(this);
-        this.views.btnCancelar.addActionListener(this);
+        this.views.btnregistro.addActionListener(this);
     }
 
-    @Override
+     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == views.btnLogin) {
             if (views.txtusuario.getText().equals("") || 
                 String.valueOf(views.txtClave.getPassword()).equals("")) {
-
                 JOptionPane.showMessageDialog(null, "Los campos están vacíos");
-
             } else {
                 String usuario = views.txtusuario.getText();
                 String clave = String.valueOf(views.txtClave.getPassword());
                 us = usDao.login(usuario, clave);
-
                 if (us.getUsuario() != null) {
-                    // Aplicar Look and Feel Nimbus
-                    try {
-                        for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                            if ("Nimbus".equals(info.getName())) {
-                                UIManager.setLookAndFeel(info.getClassName());
-                                break;
-                            }
-                        }
-                    } catch (Exception ex) {
-                        System.out.println("No se pudo aplicar Nimbus");
-                    }
-
                     // Abrir PanelAdmin maximizado
-                    PanelAdmin admin = new PanelAdmin();
+                    PanelAdminn admin = new PanelAdminn();
                     admin.setExtendedState(JFrame.MAXIMIZED_BOTH); // Maximizar pantalla
                     admin.setVisible(true);
                     this.views.dispose();

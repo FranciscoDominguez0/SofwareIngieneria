@@ -48,7 +48,7 @@ public class JframeLogin extends javax.swing.JFrame {
         checkRecodar = new javax.swing.JCheckBox();
         jLabel34 = new javax.swing.JLabel();
         loginLoader = new javax.swing.JProgressBar();
-        btnCancelar = new javax.swing.JButton();
+        btnregistro = new javax.swing.JButton();
         txtusuario = new javax.swing.JTextField();
         txtClave = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
@@ -90,21 +90,23 @@ public class JframeLogin extends javax.swing.JFrame {
         loginLoader.setForeground(new java.awt.Color(59, 140, 237));
         jPanel4.add(loginLoader, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 540, 140, 0));
 
-        btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(102, 102, 102));
-        btnCancelar.setText("Registrar nueva cuenta");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnregistro.setBackground(new java.awt.Color(255, 255, 255));
+        btnregistro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnregistro.setForeground(new java.awt.Color(102, 102, 102));
+        btnregistro.setText("Registrar nueva cuenta");
+        btnregistro.setBorder(null);
+        btnregistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
+                btnregistroActionPerformed(evt);
             }
         });
-        jPanel4.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, -1, -1));
+        jPanel4.add(btnregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, -1, -1));
 
         txtusuario.setBackground(new java.awt.Color(204, 204, 204));
         txtusuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtusuario.setForeground(new java.awt.Color(0, 0, 0));
-        txtusuario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtusuario.setToolTipText("Ingrese su nombre de usuario");
+        txtusuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtusuarioActionPerformed(evt);
@@ -114,8 +116,9 @@ public class JframeLogin extends javax.swing.JFrame {
 
         txtClave.setBackground(new java.awt.Color(204, 204, 204));
         txtClave.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtClave.setForeground(new java.awt.Color(255, 255, 255));
-        txtClave.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtClave.setForeground(new java.awt.Color(0, 0, 0));
+        txtClave.setToolTipText("Ingrese su contraseña");
+        txtClave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtClave.setInheritsPopupMenu(true);
         txtClave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +132,11 @@ public class JframeLogin extends javax.swing.JFrame {
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Frame 10_1.png"))); // NOI18N
         btnLogin.setAutoscrolls(true);
         btnLogin.setBorder(null);
+        btnLogin.setBorderPainted(false);
+        btnLogin.setContentAreaFilled(false);
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnLogin.setFocusPainted(false);
+        btnLogin.setOpaque(true);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -150,12 +158,27 @@ public class JframeLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    private void btnregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistroActionPerformed
+        Register register = new Register();
+        register.setVisible(true);
+        register.setLocationRelativeTo(null);
+        // ocultar la ventana 
+        this.setVisible(false);
+        
+        // para volver abrir 
+        // this.setVisible(true);  
+        
+        
+        /*
+        Configurar que al cerrar registro no cierre toda la app
+        register.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      this.dispose(); // Cierra login
+        */
+      
+    }//GEN-LAST:event_btnregistroActionPerformed
 
     private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
-        // TODO add your handling code here:
+     txtClave.requestFocus();
     }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
@@ -171,8 +194,8 @@ public class JframeLogin extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnLogin;
+    public javax.swing.JButton btnregistro;
     private javax.swing.JCheckBox checkRecodar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

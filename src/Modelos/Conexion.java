@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 public class Conexion {
     
     
-    public static final String URL = "jdbc:mysql://localhost:3306/sistemacomercio";
+    public static final String URL = "jdbc:mysql://localhost:3307/software_ingenieria";
     public static final String USER = "root";
     public static final String CLAVE = "";
      
