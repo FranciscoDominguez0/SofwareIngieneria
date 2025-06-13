@@ -159,6 +159,7 @@ public class JframeLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistroActionPerformed
+        
         Register register = new Register();
         register.setVisible(true);
         register.setLocationRelativeTo(null);

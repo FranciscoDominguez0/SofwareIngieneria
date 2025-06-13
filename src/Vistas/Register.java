@@ -4,6 +4,8 @@
  */
 package Vistas;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author PC
@@ -15,6 +17,105 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            jPanel1.requestFocusInWindow(); // o cualquier componente que no sea un JTextField
+        });
+        if (txtNombre.getText().isEmpty()) {
+            txtNombre.setText("Nombre");
+        }
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (txtNombre.getText().equals("Nombre")) {
+                    txtNombre.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (txtNombre.getText().isEmpty()) {
+                    txtNombre.setText("Nombre");
+                }
+            }
+        });
+
+        if (txtApellido.getText().isEmpty()) {
+            txtApellido.setText("Apellido");
+        }
+        txtApellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (txtApellido.getText().equals("Apellido")) {
+                    txtApellido.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (txtApellido.getText().isEmpty()) {
+                    txtApellido.setText("Apellido");
+                }
+            }
+        });
+
+        if (txtCorreo.getText().isEmpty()) {
+            txtCorreo.setText("Correo Electrónico");
+        }
+        txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (txtCorreo.getText().equals("Correo Electrónico")) {
+                    txtCorreo.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (txtCorreo.getText().isEmpty()) {
+                    txtCorreo.setText("Correo Electrónico");
+                }
+            }
+        });
+
+        if (txtUsuario.getText().isEmpty()) {
+            txtUsuario.setText("Usuario");
+        }
+        txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (txtUsuario.getText().equals("Usuario")) {
+                    txtUsuario.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (txtUsuario.getText().isEmpty()) {
+                    txtUsuario.setText("Usuario");
+                }
+            }
+        });
+
+        String placeholderContrasena = "Contraseña";
+        jPasswordFieldContrasena.setEchoChar((char) 0); // Mostrar texto
+        jPasswordFieldContrasena.setText(placeholderContrasena);
+        jPasswordFieldContrasena.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (String.valueOf(jPasswordFieldContrasena.getPassword()).equals(placeholderContrasena)) {
+                    jPasswordFieldContrasena.setText("");
+                    jPasswordFieldContrasena.setEchoChar('•'); // Ocultar texto
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (String.valueOf(jPasswordFieldContrasena.getPassword()).isEmpty()) {
+                    jPasswordFieldContrasena.setText(placeholderContrasena);
+                    jPasswordFieldContrasena.setEchoChar((char) 0); // Mostrar texto
+                }
+            }
+        });
     }
 
     /**
@@ -26,151 +127,183 @@ public class Register extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        crear_cuenta = new javax.swing.JPanel();
-        txt_Nombre = new javax.swing.JTextField();
-        txt_Apellido = new javax.swing.JTextField();
-        txt_correo = new javax.swing.JTextField();
-        txt_contrasena = new javax.swing.JTextField();
-        bt_rgr = new javax.swing.JButton();
-        txt_usuario = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        txtApellido = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        txtCorreo = new javax.swing.JTextField();
+        jPasswordFieldContrasena = new javax.swing.JPasswordField();
+        txtNombre = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_Nombre.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtApellido.setBackground(new java.awt.Color(255, 255, 255));
+        txtApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtApellido.setForeground(new java.awt.Color(51, 51, 51));
+        txtApellido.setToolTipText("");
+        txtApellido.setBorder(null);
+        txtApellido.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtApellido.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_NombreActionPerformed(evt);
+                txtApellidoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 230, 130, 40));
 
-        txt_Apellido.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setBackground(new java.awt.Color(255, 102, 102));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Volver");
+        jButton1.setBorderPainted(false);
+        jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ApellidoActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 510, 130, 40));
 
-        txt_correo.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setBackground(new java.awt.Color(0, 92, 224));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Registrarse");
+        jButton2.setBorderPainted(false);
+        jButton2.setFocusPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_correoActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, 130, 40));
 
-        bt_rgr.setText("jButton1");
-
-        txt_usuario.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreo.setBackground(new java.awt.Color(255, 255, 255));
+        txtCorreo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(51, 51, 51));
+        txtCorreo.setToolTipText("");
+        txtCorreo.setBorder(null);
+        txtCorreo.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtCorreo.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_usuarioActionPerformed(evt);
+                txtCorreoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 320, 30));
 
-        javax.swing.GroupLayout crear_cuentaLayout = new javax.swing.GroupLayout(crear_cuenta);
-        crear_cuenta.setLayout(crear_cuentaLayout);
-        crear_cuentaLayout.setHorizontalGroup(
-            crear_cuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(crear_cuentaLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(crear_cuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(crear_cuentaLayout.createSequentialGroup()
-                        .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(crear_cuentaLayout.createSequentialGroup()
-                        .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(crear_cuentaLayout.createSequentialGroup()
-                .addGroup(crear_cuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bt_rgr, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(crear_cuentaLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(crear_cuentaLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(crear_cuentaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txt_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 35, Short.MAX_VALUE))
+        jPasswordFieldContrasena.setBackground(new java.awt.Color(255, 255, 255));
+        jPasswordFieldContrasena.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPasswordFieldContrasena.setForeground(new java.awt.Color(0, 0, 0));
+        jPasswordFieldContrasena.setBorder(null);
+        jPasswordFieldContrasena.setCaretColor(new java.awt.Color(0, 0, 0));
+        jPasswordFieldContrasena.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jPasswordFieldContrasena.setSelectedTextColor(new java.awt.Color(51, 51, 51));
+        jPasswordFieldContrasena.setSelectionColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPasswordFieldContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, 280, 30));
+
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(51, 51, 51));
+        txtNombre.setToolTipText("");
+        txtNombre.setBorder(null);
+        txtNombre.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtNombre.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 150, 40));
+
+        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(51, 51, 51));
+        txtUsuario.setToolTipText("");
+        txtUsuario.setBorder(null);
+        txtUsuario.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 320, 50));
+
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Frame 13.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, -1, 570));
+
+        jPanel2.setBackground(new java.awt.Color(0, 92, 224));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
         );
-        crear_cuentaLayout.setVerticalGroup(
-            crear_cuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(crear_cuentaLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(txt_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bt_rgr, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        getContentPane().add(crear_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 370, 500));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 600));
 
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, -1));
-
-        jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, -1, -1));
-
-        jLabel3.setText("Nombre");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
-
-        jLabel4.setText("Apellido");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
-
-        jLabel5.setText("Correo");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
-
-        jLabel6.setText("Contraseña");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_ApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ApellidoActionPerformed
-      
-    }//GEN-LAST:event_txt_ApellidoActionPerformed
-
-    private void txt_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correoActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_correoActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JframeLogin frm = new JframeLogin();
+        frm.setVisible(true);
+        frm.setLocationRelativeTo(null);
+        Register register = new Register();
+
+        register.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.dispose(); // Cierra login
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_usuarioActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void txt_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NombreActionPerformed
-      txt_Apellido.requestFocus();
-    }//GEN-LAST:event_txt_NombreActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoActionPerformed
+
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_rgr;
-    private javax.swing.JPanel crear_cuenta;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    public javax.swing.JTextField txt_Apellido;
-    public javax.swing.JTextField txt_Nombre;
-    public javax.swing.JTextField txt_contrasena;
-    public javax.swing.JTextField txt_correo;
-    public javax.swing.JTextField txt_usuario;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordFieldContrasena;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
