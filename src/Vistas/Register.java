@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import Controladores.ControladorRegistro;
 import javax.swing.JFrame;
 
 /**
@@ -12,22 +13,42 @@ import javax.swing.JFrame;
  */
 public class Register extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Register
-     */
+    
     public Register() {
         initComponents();
+         inicializarControlador();
+        
+        configurarPlaceholders();
+       
         javax.swing.SwingUtilities.invokeLater(() -> {
-            jPanel1.requestFocusInWindow(); // o cualquier componente que no sea un JTextField
+            jPanel1.requestFocusInWindow();
         });
+    }
+
+    private void inicializarControlador() {
+    ControladorRegistro sc = new ControladorRegistro(
+        txtNombre,
+        txtApellido,
+        txtCorreo,
+        txtUsuario,
+        jPasswordFieldContrasena,
+        btnRegistro 
+    );
+}
+    
+
+    private void configurarPlaceholders() {
+      
         if (txtNombre.getText().isEmpty()) {
             txtNombre.setText("Nombre");
+            txtNombre.setForeground(new java.awt.Color(153, 153, 153));
         }
         txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (txtNombre.getText().equals("Nombre")) {
                     txtNombre.setText("");
+                    txtNombre.setForeground(new java.awt.Color(51, 51, 51));
                 }
             }
 
@@ -35,18 +56,22 @@ public class Register extends javax.swing.JFrame {
             public void focusLost(java.awt.event.FocusEvent e) {
                 if (txtNombre.getText().isEmpty()) {
                     txtNombre.setText("Nombre");
+                    txtNombre.setForeground(new java.awt.Color(153, 153, 153));
                 }
             }
         });
 
+     
         if (txtApellido.getText().isEmpty()) {
             txtApellido.setText("Apellido");
+            txtApellido.setForeground(new java.awt.Color(153, 153, 153));
         }
         txtApellido.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (txtApellido.getText().equals("Apellido")) {
                     txtApellido.setText("");
+                    txtApellido.setForeground(new java.awt.Color(51, 51, 51));
                 }
             }
 
@@ -54,18 +79,22 @@ public class Register extends javax.swing.JFrame {
             public void focusLost(java.awt.event.FocusEvent e) {
                 if (txtApellido.getText().isEmpty()) {
                     txtApellido.setText("Apellido");
+                    txtApellido.setForeground(new java.awt.Color(153, 153, 153));
                 }
             }
         });
 
+      
         if (txtCorreo.getText().isEmpty()) {
             txtCorreo.setText("Correo Electrónico");
+            txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
         }
         txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (txtCorreo.getText().equals("Correo Electrónico")) {
                     txtCorreo.setText("");
+                    txtCorreo.setForeground(new java.awt.Color(51, 51, 51));
                 }
             }
 
@@ -73,18 +102,22 @@ public class Register extends javax.swing.JFrame {
             public void focusLost(java.awt.event.FocusEvent e) {
                 if (txtCorreo.getText().isEmpty()) {
                     txtCorreo.setText("Correo Electrónico");
+                    txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
                 }
             }
         });
 
+    
         if (txtUsuario.getText().isEmpty()) {
             txtUsuario.setText("Usuario");
+            txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
         }
         txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (txtUsuario.getText().equals("Usuario")) {
                     txtUsuario.setText("");
+                    txtUsuario.setForeground(new java.awt.Color(51, 51, 51));
                 }
             }
 
@@ -92,19 +125,23 @@ public class Register extends javax.swing.JFrame {
             public void focusLost(java.awt.event.FocusEvent e) {
                 if (txtUsuario.getText().isEmpty()) {
                     txtUsuario.setText("Usuario");
+                    txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
                 }
             }
         });
 
+      
         String placeholderContrasena = "Contraseña";
-        jPasswordFieldContrasena.setEchoChar((char) 0); // Mostrar texto
+        jPasswordFieldContrasena.setEchoChar((char) 0);
         jPasswordFieldContrasena.setText(placeholderContrasena);
+        jPasswordFieldContrasena.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordFieldContrasena.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (String.valueOf(jPasswordFieldContrasena.getPassword()).equals(placeholderContrasena)) {
                     jPasswordFieldContrasena.setText("");
-                    jPasswordFieldContrasena.setEchoChar('•'); // Ocultar texto
+                    jPasswordFieldContrasena.setEchoChar('•');
+                    jPasswordFieldContrasena.setForeground(new java.awt.Color(0, 0, 0));
                 }
             }
 
@@ -112,10 +149,51 @@ public class Register extends javax.swing.JFrame {
             public void focusLost(java.awt.event.FocusEvent e) {
                 if (String.valueOf(jPasswordFieldContrasena.getPassword()).isEmpty()) {
                     jPasswordFieldContrasena.setText(placeholderContrasena);
-                    jPasswordFieldContrasena.setEchoChar((char) 0); // Mostrar texto
+                    jPasswordFieldContrasena.setEchoChar((char) 0);
+                    jPasswordFieldContrasena.setForeground(new java.awt.Color(153, 153, 153));
                 }
             }
         });
+    }
+
+    
+    public void limpiarCamposConPlaceholders() {
+     
+        txtNombre.setText("Nombre");
+        txtNombre.setForeground(new java.awt.Color(153, 153, 153));
+        
+      
+        txtApellido.setText("Apellido");
+        txtApellido.setForeground(new java.awt.Color(153, 153, 153));
+        
+      
+        txtCorreo.setText("Correo Electrónico");
+        txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
+        
+       
+        txtUsuario.setText("Usuario");
+        txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
+    
+        jPasswordFieldContrasena.setText("Contraseña");
+        jPasswordFieldContrasena.setEchoChar((char) 0);
+        jPasswordFieldContrasena.setForeground(new java.awt.Color(153, 153, 153));
+        
+       
+        jPanel1.requestFocusInWindow();
+    }
+
+    /**
+     * Método para obtener los valores reales de los campos (sin placeholders)
+     */
+    private String obtenerValorReal(javax.swing.JTextField campo, String placeholder) {
+        String texto = campo.getText();
+        return texto.equals(placeholder) ? "" : texto;
+    }
+
+    private String obtenerValorRealPassword(javax.swing.JPasswordField campo, String placeholder) {
+        String texto = String.valueOf(campo.getPassword());
+        return texto.equals(placeholder) ? "" : texto;
+       
     }
 
     /**
@@ -130,7 +208,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtApellido = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnRegistro = new javax.swing.JButton();
         txtCorreo = new javax.swing.JTextField();
         jPasswordFieldContrasena = new javax.swing.JPasswordField();
         txtNombre = new javax.swing.JTextField();
@@ -175,18 +253,18 @@ public class Register extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 130, 40));
 
-        jButton2.setBackground(new java.awt.Color(0, 92, 224));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Registrarse");
-        jButton2.setBorderPainted(false);
-        jButton2.setFocusPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistro.setBackground(new java.awt.Color(0, 92, 224));
+        btnRegistro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistro.setText("Registrarse");
+        btnRegistro.setBorderPainted(false);
+        btnRegistro.setFocusPainted(false);
+        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnRegistroActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, 130, 40));
+        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, 130, 40));
 
         txtCorreo.setBackground(new java.awt.Color(255, 255, 255));
         txtCorreo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -290,9 +368,9 @@ public class Register extends javax.swing.JFrame {
         this.dispose(); // Cierra login
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
@@ -311,17 +389,17 @@ public class Register extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnRegistro;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordFieldContrasena;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtUsuario;
+    public javax.swing.JPasswordField jPasswordFieldContrasena;
+    public javax.swing.JTextField txtApellido;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
