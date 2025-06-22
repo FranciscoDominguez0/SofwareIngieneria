@@ -6,6 +6,8 @@ package Controladores;
  */
 import Modelos.Usuarios;
 import Modelos.UsuariosConsulta;
+import Vistas.AccesoDenegado;
+import Vistas.InicioExitoso;
 import Vistas.JframeLogin;
 import Vistas.PanelAdminn;
 import java.awt.event.ActionEvent;
@@ -43,16 +45,21 @@ public class LoginControler implements ActionListener{
                 String clave = String.valueOf(views.txtClave.getPassword());
                 us = usDao.login(usuario, clave);
                 if (us.getUsuario() != null) {
+                    InicioExitoso dialog = new InicioExitoso(null, true); // null = sin JFrame padre
+                    dialog.setLocationRelativeTo(null); // Centrar en pantalla
+                    dialog.setVisible(true);
                     // Abrir PanelAdmin maximizado
                     PanelAdminn admin = new PanelAdminn();
                     admin.setExtendedState(JFrame.MAXIMIZED_BOTH); // Maximizar pantalla
                     admin.setVisible(true);
                     this.views.dispose();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Usuario o clave incorrectos");
-                }
-            }
-        }
+                     AccesoDenegado errorDialog = new AccesoDenegado(null, true);
+                     errorDialog.setLocationRelativeTo(null);
+                     errorDialog.setVisible(true);
+                 }
+             }
+         }
     }
 
 

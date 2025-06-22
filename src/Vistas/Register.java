@@ -12,6 +12,8 @@ import javax.swing.JFrame;
  * @author PC
  */
 public class Register extends javax.swing.JFrame {
+    
+    private JframeLogin login;
 
     
     public Register() {
@@ -207,12 +209,13 @@ public class Register extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         txtApellido = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
         txtCorreo = new javax.swing.JTextField();
         jPasswordFieldContrasena = new javax.swing.JPasswordField();
         txtNombre = new javax.swing.JTextField();
         txtUsuario = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -239,32 +242,19 @@ public class Register extends javax.swing.JFrame {
         });
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, 130, 40));
 
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Volver");
-        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton1.setBorderPainted(false);
-        jButton1.setFocusPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 130, 40));
-
-        btnRegistro.setBackground(new java.awt.Color(0, 92, 224));
+        btnRegistro.setBackground(new java.awt.Color(37, 99, 235));
         btnRegistro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistro.setText("Registrarse");
         btnRegistro.setBorderPainted(false);
+        btnRegistro.setContentAreaFilled(false);
         btnRegistro.setFocusPainted(false);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistroActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, 130, 40));
+        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 230, 40));
 
         txtCorreo.setBackground(new java.awt.Color(255, 255, 255));
         txtCorreo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -317,6 +307,22 @@ public class Register extends javax.swing.JFrame {
         });
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 320, 40));
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 92, 224));
+        jButton2.setText("Iniciar sesión");
+        jButton2.setBorder(null);
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Primary.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, -1, -1));
+
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Frame 13.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 0, 510, 570));
@@ -358,16 +364,6 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JframeLogin frm = new JframeLogin();
-        frm.setVisible(true);
-        frm.setLocationRelativeTo(null);
-        Register register = new Register();
-
-        register.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.dispose(); // Cierra login
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistroActionPerformed
@@ -384,16 +380,32 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
 
+    public void setLogin(JframeLogin login) {
+        this.login = login;
+    }
+
+  
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        login.setVisible(true);
+       
+        login.setLocationRelativeTo(null);
+         this.setVisible(false);
+      
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnRegistro;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPasswordField jPasswordFieldContrasena;

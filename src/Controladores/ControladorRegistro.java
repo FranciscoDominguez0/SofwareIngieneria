@@ -22,11 +22,18 @@ public class ControladorRegistro {
     private JButton btnRegistro;
     private UsuariosConsulta usuariosConsulta;
 
-    // Constructor
+    // Placeholders usados en el formulario
+    private static final String PLACEHOLDER_NOMBRE = "Nombre";
+    private static final String PLACEHOLDER_APELLIDO = "Apellido";
+    private static final String PLACEHOLDER_CORREO = "Correo Electrónico";
+    private static final String PLACEHOLDER_USUARIO = "Usuario";
+    private static final String PLACEHOLDER_CONTRASENA = "Contraseña";
+
     public ControladorRegistro(JTextField txtNombre, JTextField txtApellido,
                                JTextField txtCorreo, JTextField txtUsuario,
                                JPasswordField jPasswordFieldContrasena,
                                JButton btnRegistro) {
+
         this.txtNombre = txtNombre;
         this.txtApellido = txtApellido;
         this.txtCorreo = txtCorreo;
@@ -37,23 +44,15 @@ public class ControladorRegistro {
         this.usuariosConsulta = new UsuariosConsulta();
 
         // Asociar evento al botón
-        this.btnRegistro.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                registrarUsuario();
-            }
-        });
+        this.btnRegistro.addActionListener(e -> registrarUsuario());
     }
 
-    /**
-     * Método principal para registrar un usuario
-     */
     public void registrarUsuario() {
-        String nombre = txtNombre.getText().trim();
-        String apellido = txtApellido.getText().trim();
-        String correo = txtCorreo.getText().trim();
-        String usuario = txtUsuario.getText().trim();
-        String contrasena = new String(jPasswordFieldContrasena.getPassword());
+        String nombre = limpiarPlaceholder(txtNombre.getText().trim(), PLACEHOLDER_NOMBRE);
+        String apellido = limpiarPlaceholder(txtApellido.getText().trim(), PLACEHOLDER_APELLIDO);
+        String correo = limpiarPlaceholder(txtCorreo.getText().trim(), PLACEHOLDER_CORREO);
+        String usuario = limpiarPlaceholder(txtUsuario.getText().trim(), PLACEHOLDER_USUARIO);
+        String contrasena = limpiarPlaceholder(new String(jPasswordFieldContrasena.getPassword()), PLACEHOLDER_CONTRASENA);
 
         if (!validarDatos(nombre, apellido, correo, usuario, contrasena)) {
             return;
@@ -79,8 +78,13 @@ public class ControladorRegistro {
         }
     }
 
+    private String limpiarPlaceholder(String texto, String placeholder) {
+        return texto.equals(placeholder) ? "" : texto;
+    }
+
     private boolean validarDatos(String nombre, String apellido, String correo,
                                  String usuario, String contrasena) {
+
         if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty()
                 || usuario.isEmpty() || contrasena.isEmpty()) {
             mostrarError("Todos los campos son obligatorios");
@@ -140,16 +144,27 @@ public class ControladorRegistro {
         nuevoUsuario.setEmail(correo);
         nuevoUsuario.setUsuario(usuario);
         nuevoUsuario.setClave(contrasena);
-        nuevoUsuario.setRol("usuario");
+        nuevoUsuario.setRol("usuario"); // Por defecto
         return nuevoUsuario;
     }
 
     public void limpiarCampos() {
-        txtNombre.setText("");
-        txtApellido.setText("");
-        txtCorreo.setText("");
-        txtUsuario.setText("");
-        jPasswordFieldContrasena.setText("");
+        txtNombre.setText(PLACEHOLDER_NOMBRE);
+        txtNombre.setForeground(new java.awt.Color(153, 153, 153));
+
+        txtApellido.setText(PLACEHOLDER_APELLIDO);
+        txtApellido.setForeground(new java.awt.Color(153, 153, 153));
+
+        txtCorreo.setText(PLACEHOLDER_CORREO);
+        txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
+
+        txtUsuario.setText(PLACEHOLDER_USUARIO);
+        txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
+
+        jPasswordFieldContrasena.setText(PLACEHOLDER_CONTRASENA);
+        jPasswordFieldContrasena.setEchoChar((char) 0);
+        jPasswordFieldContrasena.setForeground(new java.awt.Color(153, 153, 153));
+
         txtNombre.requestFocus();
     }
 
