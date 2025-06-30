@@ -5,6 +5,7 @@
 package Vistas;
 
 import Controladores.ControladorRegistro;
+import Modelos.textoSombra;
 import javax.swing.JFrame;
 
 /**
@@ -12,190 +13,26 @@ import javax.swing.JFrame;
  * @author PC
  */
 public class Register extends javax.swing.JFrame {
-    
+
     private JframeLogin login;
 
-    
     public Register() {
         initComponents();
-         inicializarControlador();
+        txtUsuario.setOpaque(false);
+        txtNombre.setOpaque(false);
+        txtApellido.setOpaque(false);
+        txtCorreo.setOpaque(false);
+        jPasswordFieldContrasena.setOpaque(false);
+
+        textoSombra nombre = new textoSombra("Nombre", txtNombre);
+        textoSombra usuario = new textoSombra("Usuario", txtUsuario);
+        textoSombra apellido = new textoSombra("Apellido", txtApellido);
+        textoSombra correo = new textoSombra("Correo electrónico", txtCorreo);
+        textoSombra clave = new textoSombra("Contraseña", jPasswordFieldContrasena);
         
-        configurarPlaceholders();
-       
-        javax.swing.SwingUtilities.invokeLater(() -> {
-            jPanel1.requestFocusInWindow();
-        });
-    }
+        ControladorRegistro controladorRegistro = new ControladorRegistro(txtNombre, txtApellido, txtCorreo, txtUsuario, jPasswordFieldContrasena, btnRegistro);
+                
 
-    private void inicializarControlador() {
-    ControladorRegistro sc = new ControladorRegistro(
-        txtNombre,
-        txtApellido,
-        txtCorreo,
-        txtUsuario,
-        jPasswordFieldContrasena,
-        btnRegistro 
-    );
-}
-    
-
-    private void configurarPlaceholders() {
-      
-        if (txtNombre.getText().isEmpty()) {
-            txtNombre.setText("Nombre");
-            txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-        }
-        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (txtNombre.getText().equals("Nombre")) {
-                    txtNombre.setText("");
-                    txtNombre.setForeground(new java.awt.Color(51, 51, 51));
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (txtNombre.getText().isEmpty()) {
-                    txtNombre.setText("Nombre");
-                    txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-                }
-            }
-        });
-
-     
-        if (txtApellido.getText().isEmpty()) {
-            txtApellido.setText("Apellido");
-            txtApellido.setForeground(new java.awt.Color(153, 153, 153));
-        }
-        txtApellido.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (txtApellido.getText().equals("Apellido")) {
-                    txtApellido.setText("");
-                    txtApellido.setForeground(new java.awt.Color(51, 51, 51));
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (txtApellido.getText().isEmpty()) {
-                    txtApellido.setText("Apellido");
-                    txtApellido.setForeground(new java.awt.Color(153, 153, 153));
-                }
-            }
-        });
-
-      
-        if (txtCorreo.getText().isEmpty()) {
-            txtCorreo.setText("Correo Electrónico");
-            txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
-        }
-        txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (txtCorreo.getText().equals("Correo Electrónico")) {
-                    txtCorreo.setText("");
-                    txtCorreo.setForeground(new java.awt.Color(51, 51, 51));
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (txtCorreo.getText().isEmpty()) {
-                    txtCorreo.setText("Correo Electrónico");
-                    txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
-                }
-            }
-        });
-
-    
-        if (txtUsuario.getText().isEmpty()) {
-            txtUsuario.setText("Usuario");
-            txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        }
-        txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (txtUsuario.getText().equals("Usuario")) {
-                    txtUsuario.setText("");
-                    txtUsuario.setForeground(new java.awt.Color(51, 51, 51));
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (txtUsuario.getText().isEmpty()) {
-                    txtUsuario.setText("Usuario");
-                    txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
-                }
-            }
-        });
-
-      
-        String placeholderContrasena = "Contraseña";
-        jPasswordFieldContrasena.setEchoChar((char) 0);
-        jPasswordFieldContrasena.setText(placeholderContrasena);
-        jPasswordFieldContrasena.setForeground(new java.awt.Color(153, 153, 153));
-        jPasswordFieldContrasena.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (String.valueOf(jPasswordFieldContrasena.getPassword()).equals(placeholderContrasena)) {
-                    jPasswordFieldContrasena.setText("");
-                    jPasswordFieldContrasena.setEchoChar('•');
-                    jPasswordFieldContrasena.setForeground(new java.awt.Color(0, 0, 0));
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (String.valueOf(jPasswordFieldContrasena.getPassword()).isEmpty()) {
-                    jPasswordFieldContrasena.setText(placeholderContrasena);
-                    jPasswordFieldContrasena.setEchoChar((char) 0);
-                    jPasswordFieldContrasena.setForeground(new java.awt.Color(153, 153, 153));
-                }
-            }
-        });
-    }
-
-    
-    public void limpiarCamposConPlaceholders() {
-     
-        txtNombre.setText("Nombre");
-        txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-        
-      
-        txtApellido.setText("Apellido");
-        txtApellido.setForeground(new java.awt.Color(153, 153, 153));
-        
-      
-        txtCorreo.setText("Correo Electrónico");
-        txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
-        
-       
-        txtUsuario.setText("Usuario");
-        txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
-    
-        jPasswordFieldContrasena.setText("Contraseña");
-        jPasswordFieldContrasena.setEchoChar((char) 0);
-        jPasswordFieldContrasena.setForeground(new java.awt.Color(153, 153, 153));
-        
-       
-        jPanel1.requestFocusInWindow();
-    }
-
-    /**
-     * Método para obtener los valores reales de los campos (sin placeholders)
-     */
-    private String obtenerValorReal(javax.swing.JTextField campo, String placeholder) {
-        String texto = campo.getText();
-        return texto.equals(placeholder) ? "" : texto;
-    }
-
-    private String obtenerValorRealPassword(javax.swing.JPasswordField campo, String placeholder) {
-        String texto = String.valueOf(campo.getPassword());
-        return texto.equals(placeholder) ? "" : texto;
-       
     }
 
     /**
@@ -361,7 +198,7 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-        // TODO add your handling code here:
+        txtNombre.requestFocus();
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
@@ -369,30 +206,49 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
+        txtApellido.requestFocus();
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
-        // TODO add your handling code here:
+        txtCorreo.requestFocus();
     }//GEN-LAST:event_txtApellidoActionPerformed
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
-        // TODO add your handling code here:
+        jPasswordFieldContrasena.requestFocus();
     }//GEN-LAST:event_txtCorreoActionPerformed
 
     public void setLogin(JframeLogin login) {
         this.login = login;
     }
 
-  
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+
         login.setVisible(true);
-       
+
         login.setLocationRelativeTo(null);
-         this.setVisible(false);
-      
+
+        if (login != null) {
+            int startX = this.getX() - this.getWidth();
+            int y = this.getY();
+            login.setLocation(startX, y);
+            login.setOpacity(0f);
+            login.setVisible(true);
+
+            new Thread(() -> {
+                for (int i = 0; i <= this.getWidth(); i += 10) {
+                    login.setLocation(startX + i, y);
+                    float opacity = Math.min(1f, i / (float) this.getWidth());
+                    login.setOpacity(opacity);
+                    try {
+                        Thread.sleep(5);
+                    } catch (InterruptedException e) {
+                    }
+                }
+                this.setVisible(false);
+            }).start();
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

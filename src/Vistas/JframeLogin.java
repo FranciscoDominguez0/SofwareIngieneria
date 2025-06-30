@@ -24,20 +24,17 @@ public class JframeLogin extends javax.swing.JFrame {
 
     public JframeLogin() {
         initComponents();
-         txtusuario.setOpaque(false);
-         txtClave.setOpaque(false);
-         textoSombra usuario = new textoSombra("Usuario", txtusuario);
-         textoSombra clave = new textoSombra("Contraseña", txtClave);
-      
-        
-    this.pack(); // Ajusta tamaño al contenido
-    this.setLocationRelativeTo(null); // Centra en pantalla
+        txtusuario.setOpaque(false);
+        txtClave.setOpaque(false);
+        textoSombra usuario = new textoSombra("Usuario", txtusuario);
+        textoSombra clave = new textoSombra("Contraseña", txtClave);
 
- 
+        this.pack(); // Ajusta tamaño al contenido
+        this.setLocationRelativeTo(null); // Centra en pantalla
+
         LoginControler login = new LoginControler(us, usdao, this);
 
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -176,28 +173,38 @@ public class JframeLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistroActionPerformed
-        
-        
+
         register.setLogin(this);
         register.setVisible(true);
         register.setLocationRelativeTo(null);
         // ocultar la ventana 
-        this.setVisible(false);
+        int startX = this.getX() + this.getWidth();
+        int y = this.getY();
+
+        register.setLocation(startX, y);
+        register.setOpacity(0f); // Comienza invisible
+        register.setVisible(true);
+
+        // Animación: deslizar + fade in
+        new Thread(() -> {
+            for (int i = 0; i <= this.getWidth(); i += 10) {
+                register.setLocation(startX - i, y);
+                float opacity = Math.min(1f, i / (float) this.getWidth());
+                register.setOpacity(opacity);
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                }
+            }
+            this.setVisible(false);
+        }).start();
+
         
-        // para volver abrir 
-        // this.setVisible(true);  
-        
-        
-        /*
-        Configurar que al cerrar registro no cierre toda la app
-        register.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-      this.dispose(); // Cierra login
-        */
-      
+
     }//GEN-LAST:event_btnregistroActionPerformed
 
     private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
-     txtClave.requestFocus();
+        txtClave.requestFocus();
     }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
