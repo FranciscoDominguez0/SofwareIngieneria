@@ -19,7 +19,7 @@ import javax.swing.UIManager;
 
 
 public class LoginControler implements ActionListener{
-     private Usuarios us;
+    private Usuarios us;
     private UsuariosConsulta usDao;
     private JframeLogin views;
 
@@ -31,7 +31,7 @@ public class LoginControler implements ActionListener{
         this.views = views;
        
         this.views.btnLogin.addActionListener(this);
-        this.views.btnregistro.addActionListener(this);
+       
     }
 
      @Override
