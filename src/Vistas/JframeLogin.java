@@ -62,7 +62,7 @@ public class JframeLogin extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -174,32 +174,30 @@ public class JframeLogin extends javax.swing.JFrame {
 
     private void btnregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistroActionPerformed
 
-        register.setLogin(this);
+        register.setLogin(this); // Enlaza para volver si lo necesitas
         register.setVisible(true);
         register.setLocationRelativeTo(null);
-        // ocultar la ventana 
+
+// Coordenadas para animación
         int startX = this.getX() + this.getWidth();
         int y = this.getY();
 
+// Mover el registro fuera de la vista, a la derecha
         register.setLocation(startX, y);
-        register.setOpacity(0f); // Comienza invisible
-        register.setVisible(true);
 
-        // Animación: deslizar + fade in
+// Animación deslizante desde la derecha
         new Thread(() -> {
             for (int i = 0; i <= this.getWidth(); i += 10) {
                 register.setLocation(startX - i, y);
-                float opacity = Math.min(1f, i / (float) this.getWidth());
-                register.setOpacity(opacity);
                 try {
                     Thread.sleep(5);
                 } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
-            this.setVisible(false);
+            this.setVisible(false); // Oculta la ventana actual (login)
         }).start();
 
-        
 
     }//GEN-LAST:event_btnregistroActionPerformed
 

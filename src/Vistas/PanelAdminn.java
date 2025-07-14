@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import Controladores.ControladorColores;
 import Modelos.textoSombra;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
@@ -30,6 +31,8 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         TxtBuscar.setOpaque(false);
         textoSombra usuario = new textoSombra("Busca cualquier cosa aquí..", TxtBuscar);
         fechaHora();
+        
+        ControladorColores controladorColores = new ControladorColores(this);
 
     }
 
@@ -164,14 +167,6 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         btnDasboard.setText("Cerrar sesión");
         btnDasboard.setBorder(null);
         btnDasboard.setFocusPainted(false);
-        btnDasboard.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDasboardMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDasboardMouseExited(evt);
-            }
-        });
         btnDasboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDasboardActionPerformed(evt);
@@ -187,14 +182,6 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         btnDasboard1.setText(" Dasbboard");
         btnDasboard1.setBorder(null);
         btnDasboard1.setFocusPainted(false);
-        btnDasboard1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDasboard1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDasboard1MouseExited(evt);
-            }
-        });
         btnDasboard1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDasboard1ActionPerformed(evt);
@@ -210,14 +197,6 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         btnDasboard2.setText(" Dasbboard");
         btnDasboard2.setBorder(null);
         btnDasboard2.setFocusPainted(false);
-        btnDasboard2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDasboard2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDasboard2MouseExited(evt);
-            }
-        });
         btnDasboard2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDasboard2ActionPerformed(evt);
@@ -233,14 +212,6 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         btnDasboard5.setText(" Dasbboard");
         btnDasboard5.setBorder(null);
         btnDasboard5.setFocusPainted(false);
-        btnDasboard5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDasboard5MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDasboard5MouseExited(evt);
-            }
-        });
         btnDasboard5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDasboard5ActionPerformed(evt);
@@ -256,14 +227,6 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         btnDasboard6.setText(" Dasbboard");
         btnDasboard6.setBorder(null);
         btnDasboard6.setFocusPainted(false);
-        btnDasboard6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDasboard6MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDasboard6MouseExited(evt);
-            }
-        });
         btnDasboard6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDasboard6ActionPerformed(evt);
@@ -279,14 +242,6 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         btnDasboard7.setText(" Dasbboard");
         btnDasboard7.setBorder(null);
         btnDasboard7.setFocusPainted(false);
-        btnDasboard7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDasboard7MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDasboard7MouseExited(evt);
-            }
-        });
         btnDasboard7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDasboard7ActionPerformed(evt);
@@ -302,14 +257,6 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         btnDasboard8.setText("Dasbboard");
         btnDasboard8.setBorder(null);
         btnDasboard8.setFocusPainted(false);
-        btnDasboard8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDasboard8MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDasboard8MouseExited(evt);
-            }
-        });
         btnDasboard8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDasboard8ActionPerformed(evt);
@@ -428,14 +375,6 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         }
     }//GEN-LAST:event_btnMenuActionPerformed
 
-    private void btnDasboard1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard1MouseEntered
-        btnDasboard1.setBackground(new Color(0, 144, 153));
-    }//GEN-LAST:event_btnDasboard1MouseEntered
-
-    private void btnDasboard1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard1MouseExited
-        btnDasboard1.setBackground(new Color(40, 51, 66));
-    }//GEN-LAST:event_btnDasboard1MouseExited
-
     private void btnDasboard1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard1ActionPerformed
 
 
@@ -450,70 +389,21 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
 
     }//GEN-LAST:event_btnDasboardActionPerformed
 
-    private void btnDasboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboardMouseExited
-        btnDasboard.setBackground(new Color(40, 51, 66));
-    }//GEN-LAST:event_btnDasboardMouseExited
-
-    private void btnDasboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboardMouseEntered
-        btnDasboard.setBackground(new Color(0, 144, 153));
-    }//GEN-LAST:event_btnDasboardMouseEntered
-
     private void btnDasboard2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDasboard2ActionPerformed
-
-    private void btnDasboard2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard2MouseExited
-        btnDasboard2.setBackground(new Color(40, 51, 66));
-    }//GEN-LAST:event_btnDasboard2MouseExited
-
-    private void btnDasboard2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard2MouseEntered
-        btnDasboard2.setBackground(new Color(0, 144, 153));
-    }//GEN-LAST:event_btnDasboard2MouseEntered
-
-    private void btnDasboard5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard5MouseEntered
-        btnDasboard5.setBackground(new Color(0, 144, 153));
-    }//GEN-LAST:event_btnDasboard5MouseEntered
-
-    private void btnDasboard5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard5MouseExited
-        btnDasboard5.setBackground(new Color(40, 51, 66));
-
-    }//GEN-LAST:event_btnDasboard5MouseExited
 
     private void btnDasboard5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDasboard5ActionPerformed
 
-    private void btnDasboard6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard6MouseEntered
-        btnDasboard6.setBackground(new Color(0, 144, 153));
-    }//GEN-LAST:event_btnDasboard6MouseEntered
-
-    private void btnDasboard6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard6MouseExited
-        btnDasboard6.setBackground(new Color(40, 51, 66));
-    }//GEN-LAST:event_btnDasboard6MouseExited
-
     private void btnDasboard6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDasboard6ActionPerformed
 
-    private void btnDasboard7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard7MouseEntered
-        btnDasboard7.setBackground(new Color(0, 144, 153));
-    }//GEN-LAST:event_btnDasboard7MouseEntered
-
-    private void btnDasboard7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard7MouseExited
-        btnDasboard7.setBackground(new Color(40, 51, 66));
-    }//GEN-LAST:event_btnDasboard7MouseExited
-
     private void btnDasboard7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDasboard7ActionPerformed
-
-    private void btnDasboard8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard8MouseEntered
-        btnDasboard8.setBackground(new Color(0, 144, 153));
-    }//GEN-LAST:event_btnDasboard8MouseEntered
-
-    private void btnDasboard8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard8MouseExited
-        btnDasboard8.setBackground(new Color(40, 51, 66));
-    }//GEN-LAST:event_btnDasboard8MouseExited
 
     private void btnDasboard8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard8ActionPerformed
         // TODO add your handling code here:
@@ -527,13 +417,13 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel JlbDias;
     private javax.swing.JLabel JlbHora;
     private javax.swing.JTextField TxtBuscar;
-    private javax.swing.JButton btnDasboard;
-    private javax.swing.JButton btnDasboard1;
-    private javax.swing.JButton btnDasboard2;
-    private javax.swing.JButton btnDasboard5;
-    private javax.swing.JButton btnDasboard6;
-    private javax.swing.JButton btnDasboard7;
-    private javax.swing.JButton btnDasboard8;
+    public javax.swing.JButton btnDasboard;
+    public javax.swing.JButton btnDasboard1;
+    public javax.swing.JButton btnDasboard2;
+    public javax.swing.JButton btnDasboard5;
+    public javax.swing.JButton btnDasboard6;
+    public javax.swing.JButton btnDasboard7;
+    public javax.swing.JButton btnDasboard8;
     private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

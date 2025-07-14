@@ -29,9 +29,8 @@ public class Register extends javax.swing.JFrame {
         textoSombra apellido = new textoSombra("Apellido", txtApellido);
         textoSombra correo = new textoSombra("Correo electrónico", txtCorreo);
         textoSombra clave = new textoSombra("Contraseña", jPasswordFieldContrasena);
-        
+
         ControladorRegistro controladorRegistro = new ControladorRegistro(txtNombre, txtApellido, txtCorreo, txtUsuario, jPasswordFieldContrasena, btnRegistro);
-                
 
     }
 
@@ -59,7 +58,7 @@ public class Register extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -225,29 +224,28 @@ public class Register extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         login.setVisible(true);
-
         login.setLocationRelativeTo(null);
 
-        if (login != null) {
-            int startX = this.getX() - this.getWidth();
-            int y = this.getY();
-            login.setLocation(startX, y);
-            login.setOpacity(0f);
-            login.setVisible(true);
+// Coordenadas para animación
+        int startX = this.getX() - this.getWidth();
+        int y = this.getY();
 
-            new Thread(() -> {
-                for (int i = 0; i <= this.getWidth(); i += 10) {
-                    login.setLocation(startX + i, y);
-                    float opacity = Math.min(1f, i / (float) this.getWidth());
-                    login.setOpacity(opacity);
-                    try {
-                        Thread.sleep(5);
-                    } catch (InterruptedException e) {
-                    }
+// Mover el login fuera de la vista, a la izquierda
+        login.setLocation(startX, y);
+
+// Animación deslizante desde la izquierda
+        new Thread(() -> {
+            for (int i = 0; i <= this.getWidth(); i += 10) {
+                login.setLocation(startX + i, y);
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                this.setVisible(false);
-            }).start();
-        }
+            }
+            this.setVisible(false); // Oculta la ventana actual (registro)
+        }).start();
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
