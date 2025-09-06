@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author domin
  */
+// contrador colores
 public class ControladorColores implements MouseListener{
     
     PanelAdminn panel;
