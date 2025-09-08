@@ -6,12 +6,14 @@ package Vistas;
 
 import Controladores.ControladorColores;
 import Modelos.textoSombra;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -23,6 +25,9 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
     Thread hilo;
     private boolean menuVisible = true;
 
+    CardLayout vista;
+    DabroardPanel dabroardPanel = new DabroardPanel();
+
     public PanelAdminn() {
 
         initComponents();
@@ -31,8 +36,9 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         TxtBuscar.setOpaque(false);
         textoSombra usuario = new textoSombra("Busca cualquier cosa aquí..", TxtBuscar);
         fechaHora();
-        
+
         ControladorColores controladorColores = new ControladorColores(this);
+        vista = (CardLayout) pnl_vista_principal.getLayout();
 
     }
 
@@ -118,8 +124,9 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         btnMenu = new javax.swing.JButton();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        pnl_vista_principal = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -135,7 +142,7 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         jLabel10.setText("v 1.0.0");
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Francisco Dominguez © 2025");
+        jLabel9.setText("Sofware UP © 2025");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -144,7 +151,7 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(16, 16, 16))
         );
@@ -331,28 +338,33 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1130, 70));
 
-        jPanel11.setBackground(new java.awt.Color(237, 241, 245));
+        pnl_vista_principal.setBackground(new java.awt.Color(237, 241, 245));
+        pnl_vista_principal.setLayout(new java.awt.CardLayout());
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Group 19.png"))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(141, 141, 141))
+        jButton1.setText("jButton1");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(182, 182, 182)
+                .addComponent(jButton1)
+                .addContainerGap(869, Short.MAX_VALUE))
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabel12)
-                .addContainerGap(441, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addComponent(jButton1)
+                .addContainerGap(525, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 1130, 700));
+        pnl_vista_principal.add(jPanel2, "card2");
+
+        getContentPane().add(pnl_vista_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 1130, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -376,16 +388,17 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnDasboard1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard1ActionPerformed
-
+        pnl_vista_principal.add(dabroardPanel,"alta");
+        vista.show( pnl_vista_principal, "alta");
+     
 
     }//GEN-LAST:event_btnDasboard1ActionPerformed
 
     private void btnDasboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboardActionPerformed
-         this.dispose();
+        this.dispose();
         JframeLogin login = new JframeLogin();
         login.setVisible(true);
 
-       
 
     }//GEN-LAST:event_btnDasboardActionPerformed
 
@@ -425,18 +438,19 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
     public javax.swing.JButton btnDasboard7;
     public javax.swing.JButton btnDasboard8;
     private javax.swing.JButton btnMenu;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel pnlMenu;
+    private javax.swing.JPanel pnl_vista_principal;
     private javax.swing.JLabel txtTiemp;
     // End of variables declaration//GEN-END:variables
 }
