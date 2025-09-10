@@ -27,6 +27,7 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
 
     CardLayout vista;
     DabroardPanel dabroardPanel = new DabroardPanel();
+    
 
     public PanelAdminn() {
 
@@ -39,6 +40,7 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
 
         ControladorColores controladorColores = new ControladorColores(this);
         vista = (CardLayout) pnl_vista_principal.getLayout();
+        vista.show(pnl_vista_principal, "card2");
 
     }
 
@@ -106,13 +108,22 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         jPanel13 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        btnDasboard = new javax.swing.JButton();
-        btnDasboard1 = new javax.swing.JButton();
-        btnDasboard2 = new javax.swing.JButton();
-        btnDasboard5 = new javax.swing.JButton();
-        btnDasboard6 = new javax.swing.JButton();
-        btnDasboard7 = new javax.swing.JButton();
-        btnDasboard8 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        btnDasboard1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        btnDasboard2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        btnDasboard4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        btnDasboard5 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        btnDasboard6 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        btnDasboard7 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        btnDasboard8 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -125,11 +136,13 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         jLabel14 = new javax.swing.JLabel();
         btnMenu = new javax.swing.JButton();
         pnl_vista_principal = new javax.swing.JPanel();
+        PanelGrafico = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(237, 241, 245));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlMenu.setBackground(new java.awt.Color(40, 51, 66));
@@ -141,6 +154,7 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("v 1.0.0");
 
+        jLabel9.setBackground(new java.awt.Color(160, 167, 173));
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Sofware UP © 2025");
 
@@ -167,110 +181,281 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         pnlMenu.add(jPanel13);
         jPanel13.setBounds(0, 580, 240, 50);
 
-        btnDasboard.setBackground(new java.awt.Color(40, 51, 66));
-        btnDasboard.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnDasboard.setForeground(new java.awt.Color(255, 255, 255));
-        btnDasboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-logout-25.png"))); // NOI18N
-        btnDasboard.setText("Cerrar sesión");
-        btnDasboard.setBorder(null);
-        btnDasboard.setFocusPainted(false);
-        btnDasboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDasboardActionPerformed(evt);
-            }
-        });
-        pnlMenu.add(btnDasboard);
-        btnDasboard.setBounds(0, 500, 240, 60);
+        jSeparator1.setBackground(new java.awt.Color(29, 36, 46));
+        jSeparator1.setForeground(new java.awt.Color(29, 36, 46));
+        pnlMenu.add(jSeparator1);
+        jSeparator1.setBounds(0, 500, 240, 10);
+
+        jSeparator2.setBackground(new java.awt.Color(29, 36, 46));
+        jSeparator2.setForeground(new java.awt.Color(29, 36, 46));
+        pnlMenu.add(jSeparator2);
+        jSeparator2.setBounds(0, 240, 240, 10);
 
         btnDasboard1.setBackground(new java.awt.Color(40, 51, 66));
-        btnDasboard1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnDasboard1.setForeground(new java.awt.Color(255, 255, 255));
-        btnDasboard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-menu-25.png"))); // NOI18N
-        btnDasboard1.setText(" Dasbboard");
-        btnDasboard1.setBorder(null);
-        btnDasboard1.setFocusPainted(false);
-        btnDasboard1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDasboard1ActionPerformed(evt);
+        btnDasboard1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDasboard1MouseClicked(evt);
             }
         });
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-home-25.png"))); // NOI18N
+        jLabel6.setText("       Home        ");
+        jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabel6.setVerifyInputWhenFocusTarget(false);
+        jLabel6.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout btnDasboard1Layout = new javax.swing.GroupLayout(btnDasboard1);
+        btnDasboard1.setLayout(btnDasboard1Layout);
+        btnDasboard1Layout.setHorizontalGroup(
+            btnDasboard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        btnDasboard1Layout.setVerticalGroup(
+            btnDasboard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel6)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
         pnlMenu.add(btnDasboard1);
-        btnDasboard1.setBounds(0, 0, 240, 70);
+        btnDasboard1.setBounds(0, 80, 240, 70);
 
         btnDasboard2.setBackground(new java.awt.Color(40, 51, 66));
-        btnDasboard2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnDasboard2.setForeground(new java.awt.Color(255, 255, 255));
-        btnDasboard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-menu-25.png"))); // NOI18N
-        btnDasboard2.setText(" Dasbboard");
-        btnDasboard2.setBorder(null);
-        btnDasboard2.setFocusPainted(false);
-        btnDasboard2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDasboard2ActionPerformed(evt);
+        btnDasboard2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDasboard2MouseClicked(evt);
             }
         });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-home-25.png"))); // NOI18N
+        jLabel7.setText("       Home        ");
+        jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabel7.setVerifyInputWhenFocusTarget(false);
+        jLabel7.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout btnDasboard2Layout = new javax.swing.GroupLayout(btnDasboard2);
+        btnDasboard2.setLayout(btnDasboard2Layout);
+        btnDasboard2Layout.setHorizontalGroup(
+            btnDasboard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        btnDasboard2Layout.setVerticalGroup(
+            btnDasboard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel7)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
         pnlMenu.add(btnDasboard2);
-        btnDasboard2.setBounds(0, 80, 240, 70);
+        btnDasboard2.setBounds(0, 0, 240, 70);
+
+        btnDasboard4.setBackground(new java.awt.Color(40, 51, 66));
+        btnDasboard4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDasboard4MouseClicked(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-home-25.png"))); // NOI18N
+        jLabel8.setText("       Home        ");
+        jLabel8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabel8.setVerifyInputWhenFocusTarget(false);
+        jLabel8.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout btnDasboard4Layout = new javax.swing.GroupLayout(btnDasboard4);
+        btnDasboard4.setLayout(btnDasboard4Layout);
+        btnDasboard4Layout.setHorizontalGroup(
+            btnDasboard4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard4Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        btnDasboard4Layout.setVerticalGroup(
+            btnDasboard4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard4Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel8)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        pnlMenu.add(btnDasboard4);
+        btnDasboard4.setBounds(0, 160, 240, 70);
 
         btnDasboard5.setBackground(new java.awt.Color(40, 51, 66));
-        btnDasboard5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnDasboard5.setForeground(new java.awt.Color(255, 255, 255));
-        btnDasboard5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-menu-25.png"))); // NOI18N
-        btnDasboard5.setText(" Dasbboard");
-        btnDasboard5.setBorder(null);
-        btnDasboard5.setFocusPainted(false);
-        btnDasboard5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDasboard5ActionPerformed(evt);
+        btnDasboard5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDasboard5MouseClicked(evt);
             }
         });
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-home-25.png"))); // NOI18N
+        jLabel12.setText("       Home        ");
+        jLabel12.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabel12.setVerifyInputWhenFocusTarget(false);
+        jLabel12.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout btnDasboard5Layout = new javax.swing.GroupLayout(btnDasboard5);
+        btnDasboard5.setLayout(btnDasboard5Layout);
+        btnDasboard5Layout.setHorizontalGroup(
+            btnDasboard5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard5Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        btnDasboard5Layout.setVerticalGroup(
+            btnDasboard5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard5Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel12)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
         pnlMenu.add(btnDasboard5);
-        btnDasboard5.setBounds(0, 160, 240, 70);
+        btnDasboard5.setBounds(0, 260, 240, 70);
 
         btnDasboard6.setBackground(new java.awt.Color(40, 51, 66));
-        btnDasboard6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnDasboard6.setForeground(new java.awt.Color(255, 255, 255));
-        btnDasboard6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-menu-25.png"))); // NOI18N
-        btnDasboard6.setText(" Dasbboard");
-        btnDasboard6.setBorder(null);
-        btnDasboard6.setFocusPainted(false);
-        btnDasboard6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDasboard6ActionPerformed(evt);
+        btnDasboard6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDasboard6MouseClicked(evt);
             }
         });
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-home-25.png"))); // NOI18N
+        jLabel15.setText("       Home        ");
+        jLabel15.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabel15.setVerifyInputWhenFocusTarget(false);
+        jLabel15.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout btnDasboard6Layout = new javax.swing.GroupLayout(btnDasboard6);
+        btnDasboard6.setLayout(btnDasboard6Layout);
+        btnDasboard6Layout.setHorizontalGroup(
+            btnDasboard6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard6Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        btnDasboard6Layout.setVerticalGroup(
+            btnDasboard6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard6Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel15)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
         pnlMenu.add(btnDasboard6);
-        btnDasboard6.setBounds(0, 240, 240, 70);
+        btnDasboard6.setBounds(0, 340, 240, 70);
 
         btnDasboard7.setBackground(new java.awt.Color(40, 51, 66));
-        btnDasboard7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnDasboard7.setForeground(new java.awt.Color(255, 255, 255));
-        btnDasboard7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-menu-25.png"))); // NOI18N
-        btnDasboard7.setText(" Dasbboard");
-        btnDasboard7.setBorder(null);
-        btnDasboard7.setFocusPainted(false);
-        btnDasboard7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDasboard7ActionPerformed(evt);
+        btnDasboard7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDasboard7MouseClicked(evt);
             }
         });
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-home-25.png"))); // NOI18N
+        jLabel16.setText("       Home        ");
+        jLabel16.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel16.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabel16.setVerifyInputWhenFocusTarget(false);
+        jLabel16.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout btnDasboard7Layout = new javax.swing.GroupLayout(btnDasboard7);
+        btnDasboard7.setLayout(btnDasboard7Layout);
+        btnDasboard7Layout.setHorizontalGroup(
+            btnDasboard7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard7Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        btnDasboard7Layout.setVerticalGroup(
+            btnDasboard7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDasboard7Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel16)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
         pnlMenu.add(btnDasboard7);
-        btnDasboard7.setBounds(0, 320, 240, 70);
+        btnDasboard7.setBounds(0, 420, 240, 70);
 
         btnDasboard8.setBackground(new java.awt.Color(40, 51, 66));
-        btnDasboard8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnDasboard8.setForeground(new java.awt.Color(255, 255, 255));
-        btnDasboard8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-menu-25.png"))); // NOI18N
-        btnDasboard8.setText("Dasbboard");
-        btnDasboard8.setBorder(null);
-        btnDasboard8.setFocusPainted(false);
-        btnDasboard8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDasboard8ActionPerformed(evt);
+        btnDasboard8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDasboard8MouseClicked(evt);
             }
         });
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-exit-24.png"))); // NOI18N
+        jLabel17.setText("       Cerrar Sesión        ");
+        jLabel17.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel17.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabel17.setVerifyInputWhenFocusTarget(false);
+        jLabel17.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout btnDasboard8Layout = new javax.swing.GroupLayout(btnDasboard8);
+        btnDasboard8.setLayout(btnDasboard8Layout);
+        btnDasboard8Layout.setHorizontalGroup(
+            btnDasboard8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnDasboard8Layout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addContainerGap())
+        );
+        btnDasboard8Layout.setVerticalGroup(
+            btnDasboard8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnDasboard8Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addGap(15, 15, 15))
+        );
+
         pnlMenu.add(btnDasboard8);
-        btnDasboard8.setBounds(0, 400, 240, 70);
+        btnDasboard8.setBounds(0, 520, 240, 60);
 
         getContentPane().add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 240, 700));
 
@@ -278,7 +463,7 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Sofware UP");
@@ -341,30 +526,56 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         pnl_vista_principal.setBackground(new java.awt.Color(237, 241, 245));
         pnl_vista_principal.setLayout(new java.awt.CardLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+        PanelGrafico.setBackground(new java.awt.Color(237, 241, 245));
 
-        jButton1.setText("jButton1");
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout PanelGraficoLayout = new javax.swing.GroupLayout(PanelGrafico);
+        PanelGrafico.setLayout(PanelGraficoLayout);
+        PanelGraficoLayout.setHorizontalGroup(
+            PanelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelGraficoLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(614, Short.MAX_VALUE))
+        );
+        PanelGraficoLayout.setVerticalGroup(
+            PanelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelGraficoLayout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(163, Short.MAX_VALUE))
+        );
+
+        pnl_vista_principal.add(PanelGrafico, "card2");
+
+        getContentPane().add(pnl_vista_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 1130, 700));
+
+        jPanel2.setBackground(new java.awt.Color(237, 241, 245));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(182, 182, 182)
-                .addComponent(jButton1)
-                .addContainerGap(869, Short.MAX_VALUE))
+            .addGap(0, 250, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(jButton1)
-                .addContainerGap(525, Short.MAX_VALUE))
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
-        pnl_vista_principal.add(jPanel2, "card2");
-
-        getContentPane().add(pnl_vista_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 1130, 700));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 250, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -387,40 +598,36 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
         }
     }//GEN-LAST:event_btnMenuActionPerformed
 
-    private void btnDasboard1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard1ActionPerformed
-        pnl_vista_principal.add(dabroardPanel,"alta");
-        vista.show( pnl_vista_principal, "alta");
-     
+    private void btnDasboard1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard1MouseClicked
+        pnl_vista_principal.add(dabroardPanel, "alta");
+        vista.show(pnl_vista_principal, "alta");
+    }//GEN-LAST:event_btnDasboard1MouseClicked
 
-    }//GEN-LAST:event_btnDasboard1ActionPerformed
+    private void btnDasboard2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard2MouseClicked
+          vista.show(pnl_vista_principal, "card2");
+    }//GEN-LAST:event_btnDasboard2MouseClicked
 
-    private void btnDasboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboardActionPerformed
-        this.dispose();
+    private void btnDasboard4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDasboard4MouseClicked
+
+    private void btnDasboard5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDasboard5MouseClicked
+
+    private void btnDasboard6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDasboard6MouseClicked
+
+    private void btnDasboard7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDasboard7MouseClicked
+
+    private void btnDasboard8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDasboard8MouseClicked
         JframeLogin login = new JframeLogin();
         login.setVisible(true);
-
-
-    }//GEN-LAST:event_btnDasboardActionPerformed
-
-    private void btnDasboard2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDasboard2ActionPerformed
-
-    private void btnDasboard5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDasboard5ActionPerformed
-
-    private void btnDasboard6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDasboard6ActionPerformed
-
-    private void btnDasboard7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDasboard7ActionPerformed
-
-    private void btnDasboard8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDasboard8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDasboard8ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnDasboard8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -429,26 +636,37 @@ public class PanelAdminn extends javax.swing.JFrame implements Runnable {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JlbDias;
     private javax.swing.JLabel JlbHora;
+    private javax.swing.JPanel PanelGrafico;
     private javax.swing.JTextField TxtBuscar;
-    public javax.swing.JButton btnDasboard;
-    public javax.swing.JButton btnDasboard1;
-    public javax.swing.JButton btnDasboard2;
-    public javax.swing.JButton btnDasboard5;
-    public javax.swing.JButton btnDasboard6;
-    public javax.swing.JButton btnDasboard7;
-    public javax.swing.JButton btnDasboard8;
+    public javax.swing.JPanel btnDasboard1;
+    public javax.swing.JPanel btnDasboard2;
+    public javax.swing.JPanel btnDasboard4;
+    public javax.swing.JPanel btnDasboard5;
+    public javax.swing.JPanel btnDasboard6;
+    public javax.swing.JPanel btnDasboard7;
+    public javax.swing.JPanel btnDasboard8;
     private javax.swing.JButton btnMenu;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    public javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    public javax.swing.JLabel jLabel15;
+    public javax.swing.JLabel jLabel16;
+    public javax.swing.JLabel jLabel17;
+    public javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JPanel pnl_vista_principal;
     private javax.swing.JLabel txtTiemp;

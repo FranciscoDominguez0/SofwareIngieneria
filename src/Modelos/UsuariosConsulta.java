@@ -6,10 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-/**
- *
- * @author domin
- */
+
+
 public class UsuariosConsulta {
     Conexion cn = new Conexion();
     Connection con;
